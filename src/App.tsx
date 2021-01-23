@@ -9,7 +9,7 @@ import FileCopyIcon from "@material-ui/icons/FileCopy";
 require("github-markdown-css");
 
 const App = () => {
-  const [content, setContent] = useState("# Title");
+  const [content, setContent] = useState("# Title\n\nedit here!");
   const [mode, setMode] = useState<number>(0);
   const inputText = useCallback((e: string) => setContent(e), []);
   return (
