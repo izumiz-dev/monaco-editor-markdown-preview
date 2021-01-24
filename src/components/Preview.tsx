@@ -22,7 +22,10 @@ export const Preview = ({
 
   if (OK) {
     return (
-      <div className="markdown-body" id="preview">
+      <div
+        className="markdown-body"
+        style={{ width: "75%", justifyContent: "center" }}
+      >
         <Markdown>{content || ""}</Markdown>
       </div>
     );
