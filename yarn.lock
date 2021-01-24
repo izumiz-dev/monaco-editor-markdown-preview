@@ -1772,6 +1772,11 @@
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-0.0.39.tgz#e177e699ee1b8c22d23174caaa7422644389509f"
   integrity sha512-EYNwp3bU+98cpU4lAWYYL7Zz+2gryWH1qbdDTidVd6hkiR6weksdbMadyXKXNPEkQFhXM+hVO9ZygomHXp+AIw==
 
+"@types/gh-pages@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@types/gh-pages/-/gh-pages-3.0.0.tgz#375b0ddd43d2d2e696880c20bb43769fdaf88929"
+  integrity sha512-bWEiIqN0WSUQhUZXaaCVIRXdomjQCX9mCNLo6kGSML8VuiH5DXoiNOkXmxrJyrzMQmcV67JloDksM1I3WoVHhQ==
+
 "@types/glob@^7.1.1":
   version "7.1.3"
   resolved "https://registry.yarnpkg.com/@types/glob/-/glob-7.1.3.tgz#e6ba80f36b7daad2c685acd9266382e68985c183"
@@ -4165,6 +4170,11 @@ detect-port-alt@1.1.6:
   dependencies:
     address "^1.0.1"
     debug "^2.6.0"
+
+dexie@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/dexie/-/dexie-3.0.3.tgz#ede63849dfe5f07e13e99bb72a040e8ac1d29dab"
+  integrity sha512-BSFhGpngnCl1DOr+8YNwBDobRMH0ziJs2vts69VilwetHYOtEDcLqo7d/XiIphM0tJZ2rPPyAGd31lgH2Ln3nw==
 
 diff-sequences@^26.6.2:
   version "26.6.2"
