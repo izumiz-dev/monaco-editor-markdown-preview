@@ -5,8 +5,6 @@ import { Preview } from "./components/Preview";
 
 require("github-markdown-css");
 
-const ROOT = "monaco-editor-markdown-preview";
-
 const useQuery = () => {
   return new URLSearchParams(useLocation().search);
 };
@@ -18,10 +16,10 @@ const App: React.FC = () => {
 
   return (
     <Switch>
-      <Route exact path={`/${ROOT}`}>
+      <Route exact path="/">
         <MDEditor />
       </Route>
-      <Route path={`/${ROOT}/shared`}>
+      <Route path="/shared">
         <Preview content={sharedContents} hash={hash} />
       </Route>
     </Switch>
