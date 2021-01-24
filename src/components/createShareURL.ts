@@ -12,7 +12,7 @@ export const digestMessage = async (message: string) => {
 export const createShareURL = async (content: string) => {
   const hash = await digestMessage(content);
   let URL =
-    "https://izumiz-dev.github.io/monaco-editor-markdown-preview/shared?content=";
+    "https://monaco-md.netlify.app/monaco-editor-markdown-preview/shared?content=";
   URL += encodeURIComponent(content);
   URL += `&hash=${encodeURIComponent(hash)}`;
   return URL;
