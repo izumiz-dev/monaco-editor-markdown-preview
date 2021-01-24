@@ -14,6 +14,7 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
+    "dexie": "^3.0.3",
     "gh-pages": "^3.1.0",
     "github-markdown-css": "^4.0.0",
     "markdown-to-jsx": "^7.1.1",
@@ -51,6 +52,7 @@
     ]
   },
   "devDependencies": {
+    "@types/gh-pages": "^3.0.0",
     "@types/react-copy-to-clipboard": "^5.0.0",
     "@types/testing-library__jest-dom": "^5.9.5"
   }

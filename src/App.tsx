@@ -1,17 +1,35 @@
-import React, { useCallback, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Editor from "@monaco-editor/react";
 import Markdown from "markdown-to-jsx";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import "./App.css";
 import { Button, ButtonGroup } from "@material-ui/core";
 import FileCopyIcon from "@material-ui/icons/FileCopy";
+import { AppDB } from "./db/db";
 
 require("github-markdown-css");
 
 const App = () => {
-  const [content, setContent] = useState("# Title");
+  const db = new AppDB();
+  useEffect(() => {
+    const fetch = async () => {
+      const res = await db.markdowns.get(1);
+      setContent(res?.content);
+    };
+    fetch();
+  }, []);
+
+  const [content, setContent] = useState<string>();
   const [mode, setMode] = useState<number>(0);
-  const inputText = useCallback((e: string) => setContent(e), []);
+
+  const editMD = async (str: string) => {
+    setContent(str);
+    await db.markdowns.put({
+      id: 1,
+      content: str,
+    });
+  };
+
   return (
     <div>
       <div id="menu">
@@ -55,7 +73,7 @@ const App = () => {
             theme={"vs-dark"}
             onChange={(value) => {
               if (typeof value !== "undefined") {
-                inputText(value);
+                editMD(value);
               }
             }}
           />
