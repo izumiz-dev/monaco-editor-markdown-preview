@@ -1,7 +1,7 @@
 {
   "name": "monaco-editor-markdown-preview",
   "version": "0.1.0",
-  "homepage": "https://izumiz-dev.github.io/monaco-editor-markdown-preview",
+  "homepage": "https://monaco-md.netlify.app",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.2",
