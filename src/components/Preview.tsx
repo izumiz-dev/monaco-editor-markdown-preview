@@ -24,7 +24,7 @@ export const Preview = ({
     return (
       <div
         className="markdown-body"
-        style={{ width: "75%", justifyContent: "center" }}
+        style={{ display: "flex", justifyContent: "center" }}
       >
         <Markdown>{content || ""}</Markdown>
       </div>
