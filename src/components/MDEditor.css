@@ -1,16 +1,28 @@
+html,
+body {
+  height: 100%;
+  background-color: pink;
+  overflow-y: hidden;
+}
+
+#top {
+  height: 100%;
+}
+
 #editor {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-  height: 96vh;
+  height: 100vh;
 }
 
 #preview {
   overflow-y: scroll;
-  padding: 0px 0px 0px 24px;
-  height: calc(100% - 16px);
-  width: calc(50% - 48px);
+  padding-left: 24px;
+  height: calc(100% - 48px);
+  width: 50%;
+  background-color: white;
 }
 
 #menu {

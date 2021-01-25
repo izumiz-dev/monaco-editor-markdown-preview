@@ -31,7 +31,7 @@ export const MDEditor = () => {
   };
 
   return (
-    <div>
+    <div id="top">
       <div id="menu">
         <p id="title">Monaco Editor Markdown Github Style Preview</p>
         <ButtonGroup
