@@ -1,6 +1,6 @@
 # Monaco Editor Markdown Preview
 
-[Available here](https://izumiz-dev.github.io/monaco-editor-markdown-preview/)
+[Available here](https://monaco-md.netlify.app/)
 
 ## コンセプト
 
