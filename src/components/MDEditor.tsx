@@ -1,11 +1,8 @@
 import React, { useCallback, useEffect, useState } from "react";
 import Editor from "@monaco-editor/react";
 import Markdown from "markdown-to-jsx";
-import { Button, ButtonGroup } from "@material-ui/core";
-import ShareIcon from "@material-ui/icons/Share";
 import { AppDB } from "../db/db";
 import "./MDEditor.css";
-import { createShareURL } from "./createShareURL";
 import { decodeToString, encodeToUint8Array } from "../utils/en-decoder";
 import { AppTopBar } from "./AppBar/AppTopBar";
 
@@ -21,6 +18,7 @@ export const MDEditor = () => {
   }, []);
 
   const [content, setContent] = useState<Uint8Array>();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [mode, setMode] = useState<number>(0);
 
   useEffect(() => {
