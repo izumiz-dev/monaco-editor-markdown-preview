@@ -20,7 +20,7 @@ body {
   overflow-y: scroll;
   padding-left: 24px;
   height: calc(100% - 48px);
-  width: 50%;
+  width: calc(50% - 48px);
   background-color: white;
 }
 

@@ -15,5 +15,5 @@ export class AppDB extends Dexie {
 
 export interface IMarkdown {
   id?: number;
-  content: string;
+  content?: Uint8Array;
 }
