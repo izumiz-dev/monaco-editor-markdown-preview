@@ -6,8 +6,11 @@ import "./MDEditor.css";
 import { decodeToString, encodeToUint8Array } from "../utils/en-decoder";
 import { AppTopBar } from "./AppBar/AppTopBar";
 
+export declare type modeTypes = "editMode" | "splitMode" | "viewMode";
+
 export const MDEditor = () => {
   const db = new AppDB();
+
   useEffect(() => {
     const fetch = async () => {
       const res = await db.markdowns.get(1);
@@ -18,8 +21,7 @@ export const MDEditor = () => {
   }, []);
 
   const [content, setContent] = useState<Uint8Array>();
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [mode, setMode] = useState<number>(0);
+  const [mode, setMode] = useState<modeTypes>("splitMode");
 
   useEffect(() => {
     db.markdowns.put({
@@ -40,14 +42,21 @@ export const MDEditor = () => {
 
   return (
     <div id="top">
-      <AppTopBar content={content} />
+      <AppTopBar content={content} setMode={setMode} />
       <div
         id="editor"
-        style={mode !== 0 ? { justifyContent: "center" } : undefined}
+        style={
+          mode !== "splitMode"
+            ? {
+                justifyContent: "center",
+                background: "#2E2E2E",
+              }
+            : undefined
+        }
       >
-        {mode !== 1 ? (
+        {mode !== "viewMode" ? (
           <Editor
-            width={mode === 2 ? "100%" : "50%"}
+            width={mode === "editMode" ? "75%" : "50%"}
             defaultLanguage="markdown"
             defaultValue={decoder()}
             options={options}
@@ -55,7 +64,7 @@ export const MDEditor = () => {
             onChange={(value) => onChangeInput(value || "")}
           />
         ) : null}
-        {mode !== 2 ? (
+        {mode !== "editMode" ? (
           <div className="markdown-body" id="preview">
             <Markdown>{decoder()}</Markdown>
           </div>
@@ -70,8 +79,7 @@ type renderWhiteSpaceTypes =
   | "none"
   | "boundary"
   | "selection"
-  | "trailing"
-  | undefined;
+  | "trailing";
 
 const options = {
   fontSize: 16,

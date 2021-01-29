@@ -14,6 +14,7 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
+    "darkreader": "^4.9.27",
     "dexie": "^3.0.3",
     "gh-pages": "^3.1.0",
     "github-markdown-css": "^4.0.0",

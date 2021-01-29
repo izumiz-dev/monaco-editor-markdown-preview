@@ -1,4 +1,4 @@
-import React from "react";
+import React, { SetStateAction } from "react";
 import {
   AppBar,
   Toolbar,
@@ -29,12 +29,14 @@ import { decodeToString } from "../../utils/en-decoder";
 import { createShareURL } from "../createShareURL";
 import VerticalSplitIcon from "@material-ui/icons/VerticalSplit";
 import VisibilityIcon from "@material-ui/icons/Visibility";
+import { modeTypes } from "../MDEditor";
 
 export declare interface IAppTopBar {
   content: Uint8Array | undefined;
+  setMode: React.Dispatch<SetStateAction<modeTypes>>;
 }
 
-export const AppTopBar = ({ content }: IAppTopBar) => {
+export const AppTopBar = ({ content, setMode }: IAppTopBar) => {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [
@@ -42,6 +44,10 @@ export const AppTopBar = ({ content }: IAppTopBar) => {
     mobileMoreAnchorEl,
     setMobileMoreAnchorEl,
   ] = React.useState<null | HTMLElement>(null);
+
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    setMode(event.currentTarget.id as modeTypes);
+  };
 
   const isMenuOpen = Boolean(anchorEl);
   // const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -150,17 +156,17 @@ export const AppTopBar = ({ content }: IAppTopBar) => {
               /> */}
             <ButtonGroup variant="contained" color="inherit">
               <Tooltip title="Editor Mode" placement="bottom">
-                <IconButton id="button" onClick={() => null}>
+                <IconButton id="editMode" onClick={handleClick}>
                   <CodeIcon />
                 </IconButton>
               </Tooltip>
               <Tooltip title="Split Mode" placement="bottom">
-                <IconButton id="button" onClick={() => null}>
+                <IconButton id="splitMode" onClick={handleClick}>
                   <VerticalSplitIcon />
                 </IconButton>
               </Tooltip>
               <Tooltip title="Viewer Mode" placement="bottom">
-                <IconButton id="button" onClick={() => null}>
+                <IconButton id="viewMode" onClick={handleClick}>
                   <VisibilityIcon />
                 </IconButton>
               </Tooltip>
