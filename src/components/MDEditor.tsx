@@ -5,6 +5,7 @@ import { AppDB } from "../db/db";
 import "./MDEditor.css";
 import { decodeToString, encodeToUint8Array } from "../utils/en-decoder";
 import { AppTopBar } from "./AppBar/AppTopBar";
+import styled from "styled-components";
 
 export declare type modeTypes = "editMode" | "splitMode" | "viewMode";
 
@@ -38,13 +39,10 @@ export const MDEditor = () => {
     return decodeToString(content);
   }, [content]);
 
-  // const decoder = () => decodeToString(content);
-
   return (
-    <div id="top">
+    <Top>
       <AppTopBar content={content} setMode={setMode} />
-      <div
-        id="editor"
+      <EditorPref
         style={
           mode !== "splitMode"
             ? {
@@ -56,7 +54,7 @@ export const MDEditor = () => {
       >
         {mode !== "viewMode" ? (
           <Editor
-            width={mode === "editMode" ? "75%" : "50%"}
+            width={mode === "editMode" ? "66%" : "50%"}
             defaultLanguage="markdown"
             defaultValue={decoder()}
             options={options}
@@ -65,12 +63,12 @@ export const MDEditor = () => {
           />
         ) : null}
         {mode !== "editMode" ? (
-          <div className="markdown-body" id="preview">
+          <PreviewMarkdown className="markdown-body">
             <Markdown>{decoder()}</Markdown>
-          </div>
+          </PreviewMarkdown>
         ) : null}
-      </div>
-    </div>
+      </EditorPref>
+    </Top>
   );
 };
 
@@ -94,3 +92,23 @@ const options = {
     enabled: false,
   },
 };
+
+const PreviewMarkdown = styled.div`
+  overflow-y: scroll;
+  padding-left: 24px;
+  height: calc(100% - 48px);
+  background-color: white;
+  width: calc(50% - 48px);
+`;
+
+const EditorPref = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100vh;
+`;
+
+const Top = styled.div`
+  height: 100%;
+`;
